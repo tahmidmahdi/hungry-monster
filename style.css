@@ -1,0 +1,17 @@
+#foodHolder img{
+    height: 300px;
+}
+#foodHolder{
+    /* background-color: aquamarine; */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+}
+/* #foodHolders{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+} */
+
+.text{
+    text-align: center;
+}
