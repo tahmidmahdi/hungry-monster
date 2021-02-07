@@ -15,3 +15,8 @@
 .text{
     text-align: center;
 }
+#output img{
+    height: 300px;
+    align-items: center;
+
+}
