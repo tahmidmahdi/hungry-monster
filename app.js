@@ -59,7 +59,7 @@ const display = foods =>{
             
             output.appendChild(foodPicture);
             const foodName = document.createElement('p');
-            foodName.innerText = element;
+            foodName.innerText = 'FOOD NAME:   '+element;
             output.appendChild(foodName);
             
             foodId.innerText = id;
@@ -90,24 +90,6 @@ const display = foods =>{
                 
             // }
 
-            // const meal = this.foods.meals
-            // console.log('size', meal);
-            // for (let j = 0; j < meal.length; j++) {
-            //     for (let i = 1; i < 21; i++) {
-            //         // const element = ing[i];
-            //         // const ingradiants = document.createElement('p');
-            //         // ingradiants.innerText = element;
-            //         // output.appendChild(ingradiants);
-                    
-            //         const ing = foods.meal['strIngredient'+i];
-            //         const foodIng = document.createElement('p');
-            //         foodIng.innerText = ing;
-            //         console.log(foodIng);
-            //         output.appendChild(foodIng);
-            //         // console.log(ing);
-                    
-            //     }
-            // }
 
             
         })
