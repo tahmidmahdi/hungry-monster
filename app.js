@@ -17,7 +17,7 @@ const display = foods =>{
 
         const mainParentNode = document.getElementById('foodHolder');
         const parentNode = document.createElement('div');
-        parentNode.className = 'text';
+        parentNode.className = 'text'+i;
 
         const foodPicture = document.createElement('img')
         foodPicture.src = link;
@@ -28,6 +28,11 @@ const display = foods =>{
         parentNode.appendChild(foodName);
 
         mainParentNode.appendChild(parentNode);
+        
+
+        document.getElementsByClassName('text').addEventListener('click', function () {
+            
+        })
 
 
 
