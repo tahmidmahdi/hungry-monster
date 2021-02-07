@@ -8,19 +8,26 @@ document.getElementById('button').addEventListener('click', function() {
 
 const display = foods =>{
     for (let i = 0; i < foods.meals.length; i++) {
+
+        //this takes the meal name
         const element = foods.meals[i].strMeal;
         // console.log(element);
+
+        //this takes the meal image
         const link = foods.meals[i].strMealThumb;
 
-        const id = foods.meals[i].idMeal;
-        // console.log(link)
 
+        //this takes the meal id
+        const id = foods.meals[i].idMeal;
+
+
+        // console.log(link)
         // const ing = [];
         // ing.push(foods.meals[i].strIngredient[i])
 
 
-        //making elements
 
+        //making elements or adding elements 
         const mainParentNode = document.getElementById('foodHolder');
         const parentNode = document.createElement('div');
         parentNode.className = 'text';
@@ -42,6 +49,8 @@ const display = foods =>{
         parentNode.appendChild(foodId);
         mainParentNode.appendChild(parentNode);
 
+
+
         // const foodIndex = document.createElement('ul')
         // const index = foods.meals[i];
         // // foodIndex.className = 'btn';
@@ -49,18 +58,21 @@ const display = foods =>{
         // parentNode.appendChild(foodIndex);
 
         
-
+        // this will take the current click 
         parentNode.addEventListener('click', function (event) {
             console.log(this);
 
+            //adding image which we have  clicked
             const output = document.getElementById('output');
             const foodPicture = document.createElement('img');
             foodPicture.src = link;
-            
             output.appendChild(foodPicture);
+
+            //adding name which we have  clicked
             const foodName = document.createElement('p');
             foodName.innerText = 'FOOD NAME:   '+element;
             output.appendChild(foodName);
+        
             
             foodId.innerText = id;
             output.appendChild(foodId);
