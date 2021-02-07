@@ -65,7 +65,7 @@ const display = foods =>{
             foodId.innerText = id;
             output.appendChild(foodId);
             
-
+            // finding ingredient with foodID
             fetch('https://www.themealdb.com/api/json/v1/1/lookup.php?i='+foodId.innerText)
             .then(res => res.json())
             .then(data => {
