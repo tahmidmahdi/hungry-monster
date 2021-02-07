@@ -11,10 +11,12 @@ const display = foods =>{
         const element = foods.meals[i].strMeal;
         // console.log(element);
         const link = foods.meals[i].strMealThumb;
+
+        const id = foods.meals[i].idMeal;
         // console.log(link)
 
-        const ing = [];
-        ing.push(foods.meals[i].strIngredient[i])
+        // const ing = [];
+        // ing.push(foods.meals[i].strIngredient[i])
 
 
         //making elements
@@ -32,23 +34,69 @@ const display = foods =>{
         foodName.innerText = element;
         foodName.className = 'foodName'
         parentNode.appendChild(foodName);
-
         mainParentNode.appendChild(parentNode);
 
+        const foodId = document.createElement('p')
+        foodId.innerText = id;
+        foodId.className = 'foodId'
+        parentNode.appendChild(foodId);
+        mainParentNode.appendChild(parentNode);
+
+        // const foodIndex = document.createElement('ul')
+        // const index = foods.meals[i];
+        // // foodIndex.className = 'btn';
+        // foodIndex.className = ''+i;
+        // parentNode.appendChild(foodIndex);
+
+        
+
         parentNode.addEventListener('click', function (event) {
-            // console.log(foodPicture.src = link);
+            console.log(this);
+
             const output = document.getElementById('output');
             const foodPicture = document.createElement('img');
             foodPicture.src = link;
-            // imgo.src = link;
+            
             output.appendChild(foodPicture);
-            for (let i = 0; i < ing.length; i++) {
-                const element = ing[i];
-                const ingradiants = document.createElement('p');
-                ingradiants.innerText = element;
-                output.appendChild(ingradiants);
+            const foodName = document.createElement('p');
+            
+            foodName.innerText = element;
+            output.appendChild(foodName);
+
+
+
+            // const li = document.createElement('li');
+            console.log(foodIndex-'');
+
+            // for (let i = 1; i < 21; i++) {
+            //     const ing = foods.meals[]['strIngredient'+i];
+            //         const foodIng = document.createElement('li');
+            //         foodIng.innerText = ing;
+            //         console.log(foodIng);
+            //         output.appendChild(foodIng);
                 
-            }
+            // }
+
+            // const meal = this.foods.meals
+            // console.log('size', meal);
+            // for (let j = 0; j < meal.length; j++) {
+            //     for (let i = 1; i < 21; i++) {
+            //         // const element = ing[i];
+            //         // const ingradiants = document.createElement('p');
+            //         // ingradiants.innerText = element;
+            //         // output.appendChild(ingradiants);
+                    
+            //         const ing = foods.meal['strIngredient'+i];
+            //         const foodIng = document.createElement('p');
+            //         foodIng.innerText = ing;
+            //         console.log(foodIng);
+            //         output.appendChild(foodIng);
+            //         // console.log(ing);
+                    
+            //     }
+            // }
+
+            
         })
         
 
