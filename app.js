@@ -1,15 +1,18 @@
-document.getElementById('button').addEventListener('click', function() {
+document.getElementById('button').addEventListener('click', function () {
     const food = document.getElementById('input').value;
     // fetch('https://www.themealdb.com/api/json/v1/1/filter.php?c='+food)
-    fetch('https://www.themealdb.com/api/json/v1/1/search.php?f='+food)
-    .then(res => res.json())
-    .then(data => display(data))
-    if(food != ''){
+    fetch('https://www.themealdb.com/api/json/v1/1/search.php?f=' + food)
+        .then(res => res.json())
+        .then(data => display(data))
+    count++;
+    console.log(count);
+    if (food != '') {
         document.getElementById('input').value = '';
     }
 })
 
-const display = foods =>{
+const display = foods => {
+
     for (let i = 0; i < foods.meals.length; i++) {
 
         //this takes the meal name
@@ -37,7 +40,7 @@ const display = foods =>{
 
         const foodPicture = document.createElement('img')
         foodPicture.src = link;
-        foodPicture.className= 'foodPicture'
+        foodPicture.className = 'foodPicture'
         parentNode.appendChild(foodPicture);
 
         const foodName = document.createElement('p')
@@ -50,7 +53,7 @@ const display = foods =>{
         foodId.innerText = id;
         foodId.className = 'foodId'
         parentNode.appendChild(foodId);
-        foodId.style.display='none';
+        foodId.style.display = 'none';
         mainParentNode.appendChild(parentNode);
 
 
@@ -61,10 +64,11 @@ const display = foods =>{
         // foodIndex.className = ''+i;
         // parentNode.appendChild(foodIndex);
 
-        
+
         // this will take the current click 
         parentNode.addEventListener('click', function (event) {
             console.log(this);
+           
 
             //adding image which we have  clicked
             const output = document.getElementById('output');
@@ -74,28 +78,32 @@ const display = foods =>{
 
             //adding name which we have  clicked
             const foodName = document.createElement('p');
-            foodName.innerText = 'FOOD NAME:   '+element;
+            foodName.innerText = 'FOOD NAME:   ' + element;
             output.appendChild(foodName);
-        
-            
+
+
             foodId.innerText = id;
             output.appendChild(foodId);
-            
+
+
             // finding ingredient with foodID
-            fetch('https://www.themealdb.com/api/json/v1/1/lookup.php?i='+foodId.innerText)
-            .then(res => res.json())
-            .then(data => {
-                for (let i = 1; i < 21; i++){
-                    const para = document.createElement('p');
-                    para.innerText = data.meals[0]['strIngredient'+i];
-                    output.appendChild(para);                 
-                }
-            })
+            fetch('https://www.themealdb.com/api/json/v1/1/lookup.php?i=' + foodId.innerText)
+                .then(res => res.json())
+                .then(data => {
+                    for (let i = 1; i < 21; i++) {
+                        const para = document.createElement('li');
+                        para.innerText = data.meals[0]['strIngredient' + i];
+                        if(para.innerText == ''){
+                            continue;
+                        }
+                        output.appendChild(para);
+                    }
+                })
 
 
 
             // const li = document.createElement('li');
-           
+
 
             // for (let i = 1; i < 21; i++) {
             //     const ing = foods.meals[]['strIngredient'+i];
@@ -103,13 +111,13 @@ const display = foods =>{
             //         foodIng.innerText = ing;
             //         console.log(foodIng);
             //         output.appendChild(foodIng);
-                
+
             // }
 
 
-            
+
         })
-        
+
 
         // document.getElementById('foodHolder').addEventListener('click', function () {
         //     console.log('clicked',foodName);
@@ -120,13 +128,13 @@ const display = foods =>{
         //       console.log(event.target.innerText);
         //     })
         //   })
-          
 
 
-        
-        
-        
-   
+
+
+
+
+
     }
 }
 
