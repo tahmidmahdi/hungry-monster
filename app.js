@@ -4,6 +4,9 @@ document.getElementById('button').addEventListener('click', function() {
     fetch('https://www.themealdb.com/api/json/v1/1/search.php?f='+food)
     .then(res => res.json())
     .then(data => display(data))
+    if(food != ''){
+        document.getElementById('input').value = '';
+    }
 })
 
 const display = foods =>{
@@ -47,6 +50,7 @@ const display = foods =>{
         foodId.innerText = id;
         foodId.className = 'foodId'
         parentNode.appendChild(foodId);
+        foodId.style.display='none';
         mainParentNode.appendChild(parentNode);
 
 
